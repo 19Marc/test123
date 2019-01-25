@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="24px" viewBox="0 0 23 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Search_Icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="GA-Light" transform="translate(-765.000000, -26.000000)" fill-rule="nonzero" stroke="#6D7381">
+            <g id="Header" transform="translate(765.000000, -1.000000)">
+                <g id="Search" transform="translate(0.000000, 26.000000)">
+                    <path d="M11.8973205,20.8790607 C6.76828864,21.5998991 2.02603182,18.0263523 1.30519341,12.8973205 C0.584354993,7.76828864 4.15790182,3.02603182 9.28693365,2.30519341 C14.4159655,1.58435499 19.1582223,5.15790182 19.8790607,10.2869337 C20.5998991,15.4159655 17.0263523,20.1582223 11.8973205,20.8790607 Z M16.9580715,18.9840227 L21.9184254,24.7977675 L16.9580715,18.9840227 Z" id="Search_Icon"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

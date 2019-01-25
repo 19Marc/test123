@@ -1,0 +1,179 @@
+{
+  "name": "kickup-react",
+  "version": "3.1.0",
+  "private": true,
+  "description": "A boilerplate of things",
+  "main": "index.js",
+  "moduleRoots": [
+    "./client"
+  ],
+  "scripts": {
+    "test": "npm run flow && npm run lint && npm run jest",
+    "jest": "jest",
+    "jest-coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "lint": "run-s lint:**",
+    "lint:css": "stylelint ./client/**/styles.js",
+    "lint:js": "eslint ./client",
+    "flow": "flow",
+    "flow-coverage": "flow-coverage-report --strict-coverage",
+    "check-circular-dependencies": "madge --circular client/index.js",
+    "start": "NODE_ENV=development webpack-dev-server -d --hot --inline --progress --config internals/webpack/development.config.babel.js",
+    "start:server": "NODE_ENV=production node static/server.js",
+    "build": "run-s build:**",
+    "build:client": "NODE_ENV=production webpack --progress --colors --config internals/webpack/production.config.babel.js",
+    "build:server": "NODE_ENV=production webpack --config internals/webpack/server.config.babel.js",
+    "clean": "rimraf static/"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.1",
+    "@babel/plugin-transform-modules-commonjs": "7.0.0",
+    "@babel/plugin-transform-object-assign": "7.0.0",
+    "@babel/plugin-transform-runtime": "7.0.0",
+    "@babel/preset-env": "7.0.0",
+    "@babel/preset-flow": "7.0.0",
+    "@babel/preset-react": "7.0.0",
+    "@babel/preset-stage-0": "7.0.0",
+    "@babel/register": "7.0.0",
+    "@babel/runtime": "7.0.0",
+    "@fintory/flow-coverage-report": "^0.6.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.0.1",
+    "babel-loader": "^8.0.0-beta.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "chalk": "^2.1.0",
+    "clean-webpack-plugin": "^1.0.0",
+    "css-loader": "^1.0.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme-to-json": "^3.3.5",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-prettier": "^3.0.0",
+    "eslint-import-resolver-babel-module": "5.0.0-beta.0",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.0",
+    "file-loader": "^2.0.0",
+    "flow-bin": "^0.89.0",
+    "html-webpack-plugin": "^3.2.0",
+    "img-loader": "^3.0.0",
+    "ip": "^1.1.5",
+    "jest": "^23.1.0",
+    "jest-styled-components": "^6.3.1",
+    "jsdom": "^13.1.0",
+    "madge": "^3.0.1",
+    "minimist": "^1.2.0",
+    "npm-run-all": "^4.1.3",
+    "null-loader": "^0.1.1",
+    "ora": "^3.0.0",
+    "prettier": "^1.15.3",
+    "prettier-stylelint": "^0.4.2",
+    "react-test-renderer": "^16.7.0",
+    "style-loader": "^0.22.0",
+    "stylelint": "^9.9.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.5.1",
+    "url-loader": "^1.0.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-hot-middleware": "^2.22.2",
+    "webpack-manifest-plugin": "^2.0.3",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "connected-react-router": "^4.3.0",
+    "coveralls": "^3.0.1",
+    "express": "^4.15.3",
+    "formik": "^1.4.2",
+    "helmet": "^3.12.1",
+    "history": "^4.6.1",
+    "html-minifier": "^3.5.21",
+    "invariant": "^2.2.2",
+    "normalizr": "3.2.4",
+    "offline-plugin": "^5.0.5",
+    "polished": "^2.0.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-color": "^2.17.0",
+    "react-dom": "^16.7.0",
+    "react-fastclick": "^3.0.2-alpha.1",
+    "react-helmet": "^5.0.3",
+    "react-hot-loader": "^4.3.11",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.1.0",
+    "reselect": "^3.0.1",
+    "slugify": "^1.3.4",
+    "styled-bootstrap-grid": "^2.0.1",
+    "styled-components": "^4.1.3",
+    "uuid": "^3.2.1"
+  },
+  "jest": {
+    "testURL": "http://localhost/",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "roots": [
+      "./client",
+      "./internals/test"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "client/**/*.js",
+      "!client/**/style.js",
+      "!client/**/types.js",
+      "!client/**/styles.js",
+      "!client/index.js",
+      "!client/modules/**/index.js",
+      "!client/components/index.js",
+      "!client/pages/index.js",
+      "!client/pages/Router/*.js",
+      "!client/App.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 95,
+        "functions": 95,
+        "lines": 95,
+        "statements": -10
+      }
+    },
+    "coverageDirectory": "./coverage",
+    "setupTestFrameworkScriptFile": "./internals/test/polyfills.js",
+    "setupFiles": [
+      "./internals/test/setupTests.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/internals/test/__mocks__/styleMock.js",
+      "\\.(png|jpg|gif|ttf|eot|svg)$": "<rootDir>/internals/test/__mocks__/fileMock.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-router|react-router-dom|react-router-redux)/)"
+    ]
+  },
+  "flow-coverage-report": {
+    "globIncludePatterns": [
+      "client/**/*.js"
+    ],
+    "globExcludePatterns": [
+      "node_modules/",
+      "client/**/*.test.js"
+    ],
+    "reportTypes": [
+      "text",
+      "html"
+    ],
+    "threshold": 96
+  }
+}

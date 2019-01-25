@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Path 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="100" height="100" rx="50"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Form" transform="translate(-721.000000, -293.000000)">
+            <g id="Group-5" transform="translate(721.000000, 293.000000)">
+                <g id="Path-6">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#E1E1E1" xlink:href="#path-1"></use>
+                    <rect id="Rectangle" fill="#525252" mask="url(#mask-2)" x="27" y="10" width="47" height="47" rx="23.5"></rect>
+                    <path d="M-15,113 C8.45290595,81.6666667 30.7599469,66 51.9211228,66 C73.0822987,66 93.4794628,81.6666667 113.112615,113 L-15,113 Z" fill="#525252" mask="url(#mask-2)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
