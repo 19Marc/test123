@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from 'react'
 import { CirclePicker } from 'react-color'
-import { setFieldValue } from 'formik'
 
 import { Wrapper } from './styles'
+import type { Props, State } from './types'
 
 class ColorField extends Component<Props, State> {
   state = {
@@ -12,19 +12,15 @@ class ColorField extends Component<Props, State> {
   }
 
   handleChangeComplete = color => {
-    const { field } = this.props
-
     this.setState({ background: color.hex })
-    this.context.formik.setFieldValue(color, color)
   }
 
   render(): React$Node {
     const { visible, background } = this.state
 
     const {
-      field,
-      form: { touched, errors },
-      ...props
+      input,
+      meta: { touched, error },
     } = this.props
 
     return (
@@ -49,13 +45,11 @@ class ColorField extends Component<Props, State> {
               '#cddc39',
             ]}
             onChangeComplete={this.handleChangeComplete}
-            {...field}
-            {...props}
+            {...input}
           />
         )}
-        {touched[field.name] && errors[field.name] && (
-          <div className="error">{errors[field.name]}</div>
-        )}
+
+        {touched && error && <span>{error}</span>}
       </Wrapper>
     )
   }

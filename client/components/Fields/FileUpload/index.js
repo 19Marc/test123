@@ -1,20 +1,31 @@
+// @flow
 import React from 'react'
 
 import { UserProfileImage } from 'components'
+
 import { Input, Wrapper } from './styles'
+import type { Props } from './types'
 
-const CustomInputComponent = ({
-  field, // { name, value, onChange, onBlur }
-  form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
-  ...props
-}) => (
-  <Wrapper>
-    <label htmlFor={props.id}>
-      <UserProfileImage />
-    </label>
-    <Input {...field} {...props} />
-    {touched[field.name] && errors[field.name] && <div className="error">{errors[field.name]}</div>}
-  </Wrapper>
-)
+const FileUpload = (props: Props): React$Element<'div'> => {
+  const {
+    input,
+    meta: { touched, error },
+    id,
+  } = props
 
-export default CustomInputComponent
+  return (
+    <div>
+      <Wrapper>
+        <label htmlFor={id}>
+          <UserProfileImage />
+        </label>
+
+        <Input {...input} {...props} />
+      </Wrapper>
+
+      {touched && error && <span>{error}</span>}
+    </div>
+  )
+}
+
+export default FileUpload

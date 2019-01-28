@@ -1,0 +1,8 @@
+blueprints/
+node_modules/
+internals/webpack/
+internals/test/
+client/assets/
+**/{**/,}*/__snapshots/*
+
+**/*.{jpg,svg,png}

@@ -2,16 +2,21 @@
 import React from 'react'
 
 import { Input } from './styles'
+import type { Props } from './types'
 
-const CustomInputComponent = ({
-  field, // { name, value, onChange, onBlur }
-  form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
-  ...props
-}) => (
-  <div>
-    <Input placeholder="Test" {...field} {...props} />
-    {touched[field.name] && errors[field.name] && <div className="error">{errors[field.name]}</div>}
-  </div>
-)
+const TextInput = (props: Props): React$Element<'div'> => {
+  const {
+    input,
+    meta: { touched, error },
+    placeholder,
+  } = props
 
-export default CustomInputComponent
+  return (
+    <div>
+      <Input {...input} placeholder={placeholder} />
+      {touched && error && <span>{error}</span>}
+    </div>
+  )
+}
+
+export default TextInput

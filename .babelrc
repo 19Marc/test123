@@ -23,7 +23,8 @@
           "components": "./client/components",
           "modules": "./client/modules",
           "constants": "./client/constants",
-          "utils": "./client/utils"
+          "utils": "./client/utils",
+          "forms": "./client/forms"
         }
       }
     ],

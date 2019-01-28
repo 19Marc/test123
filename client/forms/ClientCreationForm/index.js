@@ -1,13 +1,14 @@
 // @flow
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Formik, Field } from 'formik'
-
+import { Field, reduxForm } from 'redux-form'
 import { CirclePicker } from 'react-color'
 
-import { hideModal } from 'modules/modals/actions'
+import { keys } from 'constants'
 
+import { hideModal } from 'modules/modals/actions'
 import { createClient } from 'modules/clients/actions'
+
 import { ColorField, FileUpload, TextInput } from 'components'
 import {
   Wrapper,
@@ -20,57 +21,48 @@ import {
   ColorWrapper,
 } from './styles'
 
-const ClientCreationForm = (props: *) => (
-  <div>
-    <Formik
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          props.createClient(
-            'https://uinames.com/api/photos/male/20.jpg',
-            values.name,
-            values.email,
-            values.color
-          )
-          actions.setSubmitting(false)
-        }, 1000)
-      }}
-      render={formikProps => (
+class ClientCreationForm extends Component<Props, State> {
+  handleSubmit = () => false
+
+  render(): React$Element<'div'> {
+    const { handleSubmit } = this.props
+
+    return (
+      <div>
         <Wrapper>
-          <Form onSubmit={formikProps.handleSubmit}>
-            <Field type="file" component={FileUpload} name="image" id="image" />
+          <Form onSubmit={handleSubmit(this.handleSubmit)}>
+            <Field type="file" name="image" id="image" component={FileUpload} />
             <Paragraph>Select an image for your client.</Paragraph>
-            <Field
-              type="name"
-              component={TextInput}
-              name="name"
-              id="name"
-              placeholder="New client name..."
-            />
+            <Field name="name" component={TextInput} placeholder="New client name..." />
             <Field
               type="email"
-              component={TextInput}
               name="email"
-              id="email"
+              component={TextInput}
               placeholder="New client email..."
             />
             <ColorWrapper>
               <ColorParagraph>Choose a primary color for your client task’s</ColorParagraph>
-              <Field component={ColorField} name="color" />
+              <Field name="color" component={ColorField} />
             </ColorWrapper>
             <ButtonWrapper>
-              <Cancel type="button" onClick={props.hideModal}>
+              <Cancel type="button" onClick={this.props.hideModal}>
                 Cancel
               </Cancel>
               <Add type="submit">Add</Add>
             </ButtonWrapper>
           </Form>
         </Wrapper>
-      )}
-    />
-  </div>
-)
+      </div>
+    )
+  }
+}
 
-export default connect(
-  null,
-  { createClient, hideModal }
-)(ClientCreationForm)
+export default reduxForm({
+  form: keys.form.client.create,
+  enableReinitialize: true,
+})(
+  connect(
+    null,
+    { createClient, hideModal }
+  )(ClientCreationForm)
+)
