@@ -22,7 +22,17 @@ import {
 } from './styles'
 
 class ClientCreationForm extends Component<Props, State> {
-  handleSubmit = () => false
+  handleSubmit = (values, actions) => {
+    setTimeout(() => {
+      this.props.createClient(
+        'https://uinames.com/api/photos/male/20.jpg',
+        values.name,
+        values.email,
+        values.color
+      )
+      actions.setSubmitting(false)
+    }, 1000)
+  }
 
   render(): React$Element<'div'> {
     const { handleSubmit } = this.props
@@ -41,7 +51,7 @@ class ClientCreationForm extends Component<Props, State> {
               placeholder="New client email..."
             />
             <ColorWrapper>
-              <ColorParagraph>Choose a primary color for your client task’s</ColorParagraph>
+              <ColorParagraph>Choose a primary color for your client tasks</ColorParagraph>
               <Field name="color" component={ColorField} />
             </ColorWrapper>
             <ButtonWrapper>

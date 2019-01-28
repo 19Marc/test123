@@ -13,6 +13,7 @@ class ColorField extends Component<Props, State> {
 
   handleChangeComplete = color => {
     this.setState({ background: color.hex })
+    this.props.input.onChange(color.hex)
   }
 
   render(): React$Node {
