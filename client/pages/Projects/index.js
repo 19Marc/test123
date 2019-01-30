@@ -1,20 +1,47 @@
 // @flow
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { Component } from 'react'
+import find from 'lodash/find'
+import { Switch, Route } from 'react-router-dom'
 
-import { Header, Main } from './styles'
+import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+
+import { getClients } from 'modules/clients/actions'
+
+import type { Props } from './types'
+import { Subheader, Main, Header, Line, Wrapper, Title, Test } from './styles'
 
 // SUBPAGES
-import { Dashboard, Timeline } from "./subpages";
+import { Dashboard, Timeline } from './subpages'
 
-const Projects = ({ match }: *): React$Node => (
-  <Main>
-    <div className="col-12"><Header>Projects</Header></div>
-    <Switch>
-      <Route exact path={`${match.path}`} component={Dashboard} />
-      <Route path={`${match.path}/timeline`} component={Timeline} />
-    </Switch>
-  </Main>
-);
+const Projects = (props): React$Element<'div'> => {
+  const { currentClient, match } = props
+  if (!currentClient) return <div>Not found</div>
 
-export default Projects;
+  return (
+    <Main>
+      <div className="col-12">
+        <Test>
+          <Wrapper>
+            <Subheader>{currentClient.name}</Subheader>
+            <Header>/ Projects</Header>
+          </Wrapper>
+          <Title>Projects</Title>
+        </Test>
+      </div>
+      <Line />
+      <Switch>
+        <Route exact path={match.path} component={Dashboard} />
+        <Route path={`${match.path}/timeline`} component={Timeline} />
+      </Switch>
+    </Main>
+  )
+  // }            to = {`client/${slugify(name, { lower: true })}/projects`}
+}
+
+const mapStateToProps = (state, ownProps) => ({
+  currentClient: find(state.clients.list, { slug: ownProps.match.params.slug }),
+})
+
+// $FlowFixMe
+export default connect(mapStateToProps)(Projects)

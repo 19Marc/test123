@@ -62,7 +62,7 @@ function Root(): React$Element<*> {
 
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/:client/projects" component={Projects} />
+          <Route path="/client/:slug/projects" component={Projects} />
           {/* <Route exact path="/calendar" component={Calendar} /> */}
         </Switch>
 

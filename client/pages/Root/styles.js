@@ -42,6 +42,7 @@ export default createGlobalStyle`
     font-weight: 300;
     height: 100vh;
     box-sizing: border-box;
+    user-select: none;
   }
 
   h1, h2, h3, h4, h5, h6 {

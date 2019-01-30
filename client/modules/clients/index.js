@@ -6,3 +6,4 @@ export { actions }
 export { actionTypes }
 export { reducer } from './reducer'
 export { getClients } from './selectors'
+export { getProjects } from './selectors'

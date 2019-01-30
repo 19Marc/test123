@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
-import { CirclePicker } from 'react-color'
 
 import { keys } from 'constants'
 
@@ -20,18 +19,24 @@ import {
   ColorParagraph,
   ColorWrapper,
 } from './styles'
+import type { Props, SubmissionProps } from './types'
 
-class ClientCreationForm extends Component<Props, State> {
-  handleSubmit = (values, actions) => {
-    setTimeout(() => {
-      this.props.createClient(
-        'https://uinames.com/api/photos/male/20.jpg',
-        values.name,
-        values.email,
-        values.color
-      )
-      actions.setSubmitting(false)
-    }, 1000)
+class ClientCreationForm extends Component<Props> {
+  handleSubmit = (data: SubmissionProps) => {
+    const { name, email, color, projects } = data
+
+    this.props.createClient(
+      'https://uinames.com/api/photos/male/20.jpg',
+      name,
+      email,
+      color,
+      projects
+    )
+    this.props.hideModal()
+  }
+
+  hideModal = () => {
+    this.props.hideModal()
   }
 
   render(): React$Element<'div'> {

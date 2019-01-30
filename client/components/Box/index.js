@@ -3,7 +3,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { NavLink } from 'react-router-dom'
-import slugify from 'slugify'
 import { removeClient } from 'modules/clients/actions'
 
 import { Cross } from 'components'
@@ -24,7 +23,7 @@ import {
 import type { Props } from './types'
 
 const Box = (props: Props): React$Element<*> => {
-  const { addable, id, image, name, email, color, onClick } = props
+  const { addable, id, image, name, email, color, slug, onClick } = props
 
   const Status = styled.div`
     background-color: ${color};
@@ -41,10 +40,7 @@ const Box = (props: Props): React$Element<*> => {
         </WrapperTwo>
       ) : (
         <Wrapper onClick={onClick}>
-          <NavLink
-            style={{ textDecoration: 'none' }}
-            to={`${slugify(name, { lower: true })}/projects`}
-          >
+          <NavLink style={{ textDecoration: 'none' }} to={`client/${slug}/projects`}>
             <InfoContainer>
               <ClientPicture src={image} alt="" />
               <ClientName>{name}</ClientName>

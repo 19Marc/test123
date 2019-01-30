@@ -26,7 +26,7 @@ class Sidebar extends Component<Props, State> {
   state = {
     navbarItems: [
       { id: '1', title: 'Home', icon: 'Home', to: '/' },
-      { id: '2', title: 'Calendar', icon: 'Time', to: '/calendar' },
+      { id: '2', title: 'Calendar', icon: 'Time', to: '/client/calendar' },
     ],
   }
 

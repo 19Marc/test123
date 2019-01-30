@@ -37,9 +37,9 @@ class Home extends Component<Props> {
           <div>
             <div className="container">
               <div className="row">
-                {clients.map(({ id, image, name, email, color }) => (
-                  <div key={id} style={{ marginBottom: 36 }} className="col-4">
-                    <Box id={id} image={image} name={name} email={email} color={color} />
+                {clients.map(client => (
+                  <div key={client.id} style={{ marginBottom: 36 }} className="col-4">
+                    <Box {...client} />
                   </div>
                 ))}
                 <div className="col-4">

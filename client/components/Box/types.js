@@ -6,6 +6,7 @@ export type Props = {
   name?: string,
   email?: string,
   color?: string,
+  slug: string,
   onClick?: Function,
   removeClient: Function,
 }
