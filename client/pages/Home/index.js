@@ -8,6 +8,7 @@ import { showModal } from 'modules/modals/actions'
 
 // Components
 import { Box } from 'components'
+import { Button } from '../../globalComponents'
 
 import { Main, Header, Wrapper } from './styles'
 import type { Props } from './types'

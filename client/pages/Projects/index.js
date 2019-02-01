@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
+import withCurrentClient from 'constants/decorators/withCurrentClient'
 import { getClients } from 'modules/clients/actions'
 
 import type { Props } from './types'
@@ -39,9 +40,5 @@ const Projects = (props): React$Element<'div'> => {
   // }            to = {`client/${slugify(name, { lower: true })}/projects`}
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  currentClient: find(state.clients.list, { slug: ownProps.match.params.slug }),
-})
-
 // $FlowFixMe
-export default connect(mapStateToProps)(Projects)
+export default withCurrentClient(Projects)

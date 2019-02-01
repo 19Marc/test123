@@ -36,7 +36,7 @@ const Box = (props: Props): React$Element<*> => {
     <StyledBox>
       {addable ? (
         <WrapperTwo onClick={onClick}>
-          <Cross />
+          <Cross width="100px" height="100px" />
         </WrapperTwo>
       ) : (
         <Wrapper onClick={onClick}>

@@ -1,7 +1,7 @@
 // @flow
 import uuid from 'utils/uuid'
 import slugify from 'slugify'
-import { CREATE_CLIENT, REMOVE_CLIENT, GET_CLIENTS, GET_PROJECTS } from './actionTypes'
+import { CREATE_CLIENT, REMOVE_CLIENT, GET_CLIENTS } from './actionTypes'
 import type { Action } from './types'
 
 export function createClient(image: string, name: string, email: string, color: string): Action {
@@ -26,8 +26,4 @@ export function getClients(
   color: string
 ): Action {
   return { type: GET_CLIENTS, payload: { id, image, name, email, color } }
-}
-
-export function getProjects(id: string, name: string): Action {
-  return { type: GET_PROJECTS, payload: { id, name } }
 }

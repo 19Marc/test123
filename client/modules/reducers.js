@@ -1,15 +1,17 @@
 // @flow
-import { combineReducers } from "redux";
-import type { CombinedReducer } from "redux";
+import { combineReducers } from 'redux'
+import type { CombinedReducer } from 'redux'
 
-import { reducer as clientReducer } from "./clients";
-import { reducer as modalReducer } from "./modals";
-import { reducer as formReducer } from "redux-form";
+import { reducer as formReducer } from 'redux-form'
+import { reducer as clientReducer } from './clients'
+import { reducer as projectReducer } from './projects'
+import { reducer as modalReducer } from './modals'
 
-import type { Action } from "./types";
+import type { Action } from './types'
 
 export const rootReducer: CombinedReducer<any, Action> = combineReducers({
-  clients: clientReducer,
+  form: formReducer,
   modals: modalReducer,
-  form: formReducer
-});
+  clients: clientReducer,
+  projects: projectReducer,
+})

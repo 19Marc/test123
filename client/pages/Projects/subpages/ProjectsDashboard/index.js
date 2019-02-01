@@ -1,36 +1,55 @@
 // @flow
-import React from 'react'
-import find from 'lodash/find'
-import { connect } from 'react-redux'
+import React, { Component } from 'react'
 
-const ProjectsDashboard = (props: *): React$Element<'div'> => {
-  const { currentClient, clients } = props
-  return (
-    <div>
-      {clients.map(
-        (client: *): React$Element<'div'> => (
-          <div>
-            <div
-              style={{
-                marginLeft: 14,
-                fontFamily: 'Guillon-Regular, sans-serif',
-                fontSize: 14,
-                color: '#AAAAAA',
-                marginTop: 4,
-              }}
-            >
-              {client.projects.name}
+import withCurrentClient from 'constants/decorators/withCurrentClient'
+import { keys } from 'constants'
+import { Card, Button } from '../../../../globalComponents'
+
+import type { Props } from './types'
+import { Wrapper } from './styles'
+
+class ProjectsDashboard extends Component<Props> {
+  addProject = () => {
+    this.props.showModal(keys.modal.project.create, {
+      title: 'Add new Project',
+      data: { clientId: this.props.currentClient.id },
+    })
+  }
+
+  // if (typeof currentClient.projects === 'undefined' || currentClient.projects == null)
+  //   return (
+  //     <Wrapper>
+  //       <div className="container">
+  //         <div className="row">
+  //           <div className="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+  //             <EmptyProjectBox />
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </Wrapper>
+  //   )
+  render(): React$Element<*> {
+    const { currentClient } = this.props
+
+    return (
+      <Wrapper>
+        <div className="container">
+          <div className="row">
+            {currentClient.projects.map(project => (
+              <div className="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+                <Card {...project} title={project.name}>
+                  {project.description}
+                </Card>
+              </div>
+            ))}
+            <div className="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+              <Card addable onClick={() => this.addProject()} />
             </div>
           </div>
-        )
-      )}
-    </div>
-  )
+        </div>
+      </Wrapper>
+    )
+  }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  currentClient: find(state.clients.list, { slug: ownProps.match.params.slug }),
-  clients: state.clients.list.projects,
-})
-
-export default connect(mapStateToProps)(ProjectsDashboard)
+export default withCurrentClient(ProjectsDashboard)

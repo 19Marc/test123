@@ -1,4 +1,4 @@
 // @flow
 export type Props = {
-  modalProps: *,
+  currentClient: *,
 }

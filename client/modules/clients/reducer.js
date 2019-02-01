@@ -1,5 +1,5 @@
 // @flow
-import { CREATE_CLIENT, REMOVE_CLIENT, GET_CLIENTS, GET_PROJECTS } from './actionTypes'
+import { CREATE_CLIENT, REMOVE_CLIENT, GET_CLIENTS } from './actionTypes'
 import type { State, Action } from './types'
 
 export const initialState: State = {
@@ -12,12 +12,6 @@ export const initialState: State = {
       name: 'Flow',
       email: 'support@flow-fintory.com',
       color: '#0F5FE2',
-      projects: [
-        {
-          id: 1,
-          name: 'Website',
-        },
-      ],
     },
   ],
 }
@@ -30,8 +24,6 @@ export const reducer = (state: State = initialState, { type, ...action }: Action
       return { ...state, list: state.list.filter(client => client.id !== action.id) }
     case GET_CLIENTS:
       return { ...state, list: state.list }
-    case GET_PROJECTS:
-      return { ...state, list: state.list.projects }
     default:
       return state
   }
