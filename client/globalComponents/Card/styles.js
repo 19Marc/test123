@@ -15,7 +15,7 @@ export const CardContainer = styled.div`
   color: ${(props: { variant: string }) => fontColor[props.variant]};
   text-decoration: none;
   border-radius: 12px;
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
   display: inline-block;
   cursor: pointer;

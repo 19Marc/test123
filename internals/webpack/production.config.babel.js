@@ -14,6 +14,7 @@ module.exports = {
   mode: 'production',
   devtool: 'source-map',
   plugins: [
+    ...baseConfig.plugins,
     config('serviceWorker.enabled') && new OfflinePlugin(),
     config('cleanOnBuild') && new CleanWebpackPlugin(baseConfig.output.path, { root: path.join(__dirname, '..', '..') }),
     new HtmlWebpackPlugin({

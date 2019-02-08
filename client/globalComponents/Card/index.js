@@ -17,7 +17,7 @@ import { Button } from '..'
 import type { Props } from './types'
 
 export default function Card(props: Props): React$Element<'div'> {
-  const { children, title, addable } = props
+  const { children, title, addable, id } = props
   return (
     <div>
       {!addable ? (
@@ -26,7 +26,7 @@ export default function Card(props: Props): React$Element<'div'> {
             <Icon />
             <ProjectTitle>{title}</ProjectTitle>
             <DropDown>
-              <DropDownAction />
+              <DropDownAction id={id} />
             </DropDown>
           </Header>
           <Content>

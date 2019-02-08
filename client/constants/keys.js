@@ -6,6 +6,9 @@ export const modal = {
   project: {
     create: 'MODAL_CREATE_PROJECT',
   },
+  task: {
+    create: 'MODAL_CREATE_TASK',
+  },
 }
 
 export const form = {
@@ -14,5 +17,8 @@ export const form = {
   },
   project: {
     create: 'FORM_CREATE_PROJECT',
+  },
+  task: {
+    create: 'FORM_CREATE_TASK',
   },
 }

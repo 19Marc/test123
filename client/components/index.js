@@ -28,3 +28,7 @@ export { default as ColorField } from './Fields/ColorPicker'
 export { default as FileUpload } from './Fields/FileUpload'
 export { default as TextInput } from './Fields/TextInput'
 export { default as Action } from './Images_/Action'
+
+// Timeline Components
+export { default as TaskModal } from './TimelineComponents/TaskModal'
+export { default as DayPickerino } from './TimelineComponents/DayPicker'

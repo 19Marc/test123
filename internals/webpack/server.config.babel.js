@@ -2,6 +2,8 @@ import webpack from "webpack";
 import path from "path";
 import nodeExternals from "webpack-node-externals";
 import config from "./base.config";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+
 import paths from "../paths";
 
 const internalsFolder = path.join(__dirname, "..");
@@ -18,6 +20,7 @@ module.exports = {
     publicPath: "/"
   },
   plugins: [
+    ...config.plugins,
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
       "process.env.SERVER": JSON.stringify(true)

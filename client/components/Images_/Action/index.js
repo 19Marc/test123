@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Action = props => (
-  <svg width="1em" height="1em" viewBox="0 0 8 24" {...props}>
+  <svg width="1.25em" height="1.25em" viewBox="0 0 8 24" {...props}>
     <defs>
       <filter
         x="-1.2%"

@@ -13,6 +13,7 @@ import GlobalStyleTag, { Main } from './styles'
 
 import Home from '../Home'
 import Projects from '../Projects'
+import Calendar from '../Calendar'
 
 function Root(): React$Element<*> {
   return (
@@ -33,6 +34,10 @@ function Root(): React$Element<*> {
           />,
           <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+            rel="stylesheet"
+          />,
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900"
             rel="stylesheet"
           />,
           <meta
@@ -63,7 +68,7 @@ function Root(): React$Element<*> {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/client/:slug/projects" component={Projects} />
-          {/* <Route exact path="/calendar" component={Calendar} /> */}
+          <Route path="/client/calendar" component={Calendar} />
         </Switch>
 
         <ModalBundler />

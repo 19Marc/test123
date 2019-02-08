@@ -1,5 +1,5 @@
 // @flow
-import { GET_PROJECTS, CREATE_PROJECTS } from './actionTypes'
+import { GET_PROJECTS, CREATE_PROJECTS, REMOVE_PROJECTS } from './actionTypes'
 import type { State, Action } from './types'
 
 export const initialState: State = {
@@ -25,6 +25,8 @@ export const reducer = (state: State = initialState, { type, ...action }: Action
   switch (type) {
     case CREATE_PROJECTS:
       return { ...state, list: action.payload ? [...state.list, action.payload] : state.list }
+    case REMOVE_PROJECTS:
+      return { ...state, list: state.list.filter(project => project.id !== action.id) }
     case GET_PROJECTS:
       return { ...state, list: action.payload ? [...state.list, action.payload] : state.list }
     default:

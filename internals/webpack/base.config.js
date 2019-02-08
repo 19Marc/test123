@@ -1,4 +1,5 @@
 import path from 'path'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import paths from '../paths'
 
 const { NODE_ENV } = process.env
@@ -22,8 +23,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -48,4 +48,7 @@ module.exports = {
     },
     modules: [path.resolve('./'), 'node_modules'],
   },
+  plugins: [
+    new MiniCssExtractPlugin({ filename: '[name].css', chunkFilename: '[id].css' }),
+  ],
 }

@@ -1,0 +1,18 @@
+.DayPicker {
+  background-color: #fff;
+  border: 1px solid #DBDBDB;
+  border-radius: 9px;
+  position: absolute;
+}
+
+.DayPicker-Day {
+  outline: none;
+}
+
+.DayPicker-wrapper {
+  outline: none;
+}
+
+.DayPicker-NavButton {
+  outline: none;
+}

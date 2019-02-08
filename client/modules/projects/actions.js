@@ -1,6 +1,6 @@
 // @flow
 import uuid from 'utils/uuid'
-import { GET_PROJECTS, CREATE_PROJECTS } from './actionTypes'
+import { GET_PROJECTS, CREATE_PROJECTS, REMOVE_PROJECTS } from './actionTypes'
 import type { Action } from './types'
 
 export function getProjects(id: string, name: string, description: string): Action {
@@ -14,4 +14,8 @@ export function createProject(clientId: number, name: string, description: strin
     type: CREATE_PROJECTS,
     payload: { id, clientId, name, description },
   }
+}
+
+export function removeProject(id: string): Action {
+  return { type: REMOVE_PROJECTS, id }
 }
